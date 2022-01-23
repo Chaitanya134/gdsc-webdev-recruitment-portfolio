@@ -1,0 +1,161 @@
+:root {
+    --smoky-black: #0B0C10;
+    --dark-blue: #1F2833;
+    --grey: #C5C6C7;
+    --cyan: #66FCF1;
+    --dark-cyan: #45A29E;
+    --header-height: 75px;
+    --padding: 10rem;
+}
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Oxygen, sans-serif;
+}
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: radial-gradient(circle at 25%, var(--dark-blue), var(--smoky-black) 50%);
+    padding: 1rem var(--padding);
+}
+
+.hero-header {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: var(--header-height);
+    width: calc(100% - 2*var(--padding));
+}
+
+.hero-name {
+    color: white;
+    font-size: 1.4rem;   
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+.hero-nav {
+    width: 35%;
+}
+
+.hero-nav > ul {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.hero-nav-link {
+    position: relative;
+    font-size: 1.1rem;
+    text-decoration: none;
+    color: var(--cyan);
+}
+
+.hero-nav-link::after {
+    position: absolute;
+    content: "";
+    height: 3px;
+    width: 110%;
+    background: var(--cyan);
+    left: -5%;
+    bottom: -0.5rem;
+    transform: scaleX(0);
+    transition: 0.3s transform ease-in-out;
+}
+
+.hero-nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.hero-body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height) - 2rem);
+}
+
+.hero-about-me {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1.2rem;
+}
+
+.hero-heading {
+    color: white;
+    font-size: 2.8rem;
+    max-width: 50%;
+}
+
+.hero-heading-name {
+    color: var(--cyan);
+}
+
+.hero-description {
+    color: var(--grey);
+    font-size: 1.1rem;
+    max-width: 65%;
+    line-height: 1.4rem;
+    letter-spacing: 0.5px;
+}
+
+.hero-btn-wrapper {
+    display: flex;
+    align-items: center;
+    column-gap: 2rem;
+}
+
+.hero-btn {
+    height: 40px;
+    width: 130px;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.hero-btn > a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hero-btn-my-hobbies {
+    color: white;
+    border: 2px solid var(--cyan);
+    background: transparent;
+}
+
+.hero-btn-skills {
+    color: var(--smoky-black);
+    background: var(--cyan);
+    border: none;
+    font-weight: bold;
+}
+
+.hero-photo-group {
+    position: relative;
+    height: 350px;
+    width: 350px;
+}
+
+.hero-photo-div {
+    position: absolute;
+    inset: 0;
+    border-radius: 20% 80% 40% 60% / 20% 60% 40% 80%;
+}
+
+.hero-photo-div:nth-child(1) {
+    background: white;
+    transform: rotate(60deg) translate(4%, -12%);
+}
+
+.hero-photo-div:nth-child(2) {
+    background: var(--cyan);
+    transform: rotate(20deg);
+}
