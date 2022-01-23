@@ -6,3 +6,14 @@ for (const heroNavLink of heroNavLinks) {
         this.classList.add("active");
     })
 }
+
+// let currentHeadingIndex = 0;
+// const animationInterval = setInterval(() => {
+//     const heroHeadings = document.querySelectorAll(".hero-heading-animation");
+//     heroHeadings[currentHeadingIndex].style.display = "none";
+//     currentHeadingIndex++;
+//     if (currentHeadingIndex === 5) {
+//         currentHeadingIndex = 0;
+//     }
+//     heroHeadings[currentHeadingIndex].style.display = "inline-block";
+// }, 6000)

@@ -6,6 +6,11 @@
     --dark-cyan: #45A29E;
     --header-height: 75px;
     --padding: 10rem;
+    --heading-name-width: 12ch;
+    --heading-webdev-width: 15ch;
+    --heading-ml-width: 18ch;
+    --heading-cp-width: 23ch;
+    --heading-learning-width: 22ch;
 }
 
 *, *::before, *::after {
@@ -90,11 +95,55 @@
 .hero-heading {
     color: white;
     font-size: 2.8rem;
-    max-width: 50%;
 }
 
-.hero-heading-name {
+.hero-heading-animation {
+    height: 3rem;
+    overflow: hidden;
+    line-height: 3rem;
+}
+
+.hero-heading-animation > div {
+    position: relative;
+    top: 0;
+    display: block;
+    font-size: 2.4rem;
+    overflow: hidden;
+    animation: verticalSlide 30s steps(5) infinite;
+}
+
+.hero-heading-animation .typing-text {
+    position: relative;
+    display: block;
     color: var(--cyan);
+    white-space: nowrap;
+    border-right: 2px solid var(--cyan);
+    overflow: hidden;
+}
+
+#typing-text-name {
+    animation: typing-name 6s ease-in-out 3s infinite;
+    width: var(--heading-name-width);
+}
+
+#typing-text-webdev {
+    animation: typing-webdev 6s ease-in-out 3s infinite;
+    width: var(--heading-webdev-width);
+}
+
+#typing-text-ml {
+    animation: typing-ml 6s ease-in-out 3s infinite;
+    width: var(--heading-ml-width);
+}
+
+#typing-text-cp {
+    animation: typing-cp 6s ease-in-out 3s infinite;
+    width: var(--heading-cp-width);
+}
+
+#typing-text-learning {
+    animation: typing-learning 6s ease-in-out 3s infinite;
+    width: var(--heading-learning-width);
 }
 
 .hero-description {
@@ -158,4 +207,56 @@
 .hero-photo-div:nth-child(2) {
     background: var(--cyan);
     transform: rotate(20deg);
+}
+
+/* Typing Animations */
+@keyframes typing-name {
+    50% {
+        width: 0;
+    }
+    100% {
+        width: var(--heading-name-width);
+    }
+}
+
+@keyframes typing-webdev {
+    50% {
+        width: 0;
+    }
+    100% {
+        width: var(--heading-webdev-width);
+    }
+}
+
+@keyframes typing-ml {
+    50% {
+        width: 0;
+    }
+    100% {
+        width: var(--heading-ml-width);
+    }
+}
+
+@keyframes typing-cp {
+    50% {
+        width: 0;
+    }
+    100% {
+        width: var(--heading-cp-width);
+    }
+}
+
+@keyframes typing-learning {
+    50% {
+        width: 0;
+    }
+    100% {
+        width: var(--heading-learning-width);
+    }
+}
+
+@keyframes verticalSlide {
+    100% {
+        top: calc(-3rem * 5);
+    }
 }
