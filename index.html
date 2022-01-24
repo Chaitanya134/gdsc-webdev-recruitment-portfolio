@@ -6,19 +6,21 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chaitanya Giri</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
 </head>
 
 <body>
-    <section class="hero">
+    <!-- Home Section -->
+    <section id="home" class="hero">
         <header class="hero-header">
             <span class="hero-name">Chaitanya Giri</span>
             <nav class="hero-nav">
                 <ul>
-                    <li><a class="hero-nav-link active" href="#">HOME</a></li>
-                    <li><a class="hero-nav-link" href="#">MY HOBBIES</a></li>
-                    <li><a class="hero-nav-link" href="#">SKILLS</a></li>
+                    <li><a id="home-nav-link" class="hero-nav-link active" onclick="scrollToSection('home')">HOME</a></li>
+                    <li><a id="hobbies-nav-link" class="hero-nav-link" onclick="scrollToSection('hobbies')">MY HOBBIES</a></li>
+                    <li><a id="skills-nav-link" class="hero-nav-link" onclick="scrollToSection('skills')">SKILLS</a></li>
                 </ul>
             </nav>
         </header>
@@ -57,20 +59,51 @@
                     </span>
                 </div>
                 <div class="hero-description">
-                    <p>I like to code and always look for learning new skills and uplift myself</p>
+                    <p>I like to code and always look for learning new skills and uplift myself.</p>
                 </div>
                 <div class="hero-btn-wrapper">
                     <button type="button" class="hero-btn hero-btn-my-hobbies">
-                        <a href="#">My Hobbies</a>
+                        <a onclick="scrollToSection('hobbies')">My Hobbies</a>
                     </button>
                     <button type="button" class="hero-btn hero-btn-skills">
-                        <a href="#">Skills</a>
+                        <a onclick="scrollToSection('skills')">Skills</a>
                     </button>
                 </div>
             </div>
             <div class="hero-photo-group">
                 <div class="hero-photo-div"></div>
                 <div class="hero-photo-div"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies" class="hobbies">
+        <span class="hobbies-header">My Hobbies</span>
+        <div class="hobbies-container">
+            <div class="hobbies-wrapper">
+                <div class="hobbies-circle"><i class="fa fa-code"></i></div>
+                <span>PROGRAMMING</span>
+            </div>
+            <div class="hobbies-wrapper">
+                <div class="hobbies-circle"><i class="fa fa-music"></i></div>
+                <span>MUSIC</span>
+            </div>
+            <div class="hobbies-wrapper">
+                <div class="hobbies-circle"><i class="fa fa-paint-brush"></i></div>
+                <span>DRAWING</span>
+            </div>
+            <div class="hobbies-wrapper">
+                <div class="hobbies-circle"><i class="fa fa-youtube-play"></i></div>
+                <span>WATCHING YT</span>
+            </div>
+            <div class="hobbies-wrapper">
+                <div class="hobbies-circle"><i class="fa fa-car"></i></div>
+                <span>TRAVELLING</span>
+            </div>
+            <div class="hobbies-wrapper">
+                <div class="hobbies-circle"><i class="fa fa-tree"></i></div>
+                <span>GARDENING</span>
             </div>
         </div>
     </section>
