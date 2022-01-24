@@ -23,7 +23,25 @@
 
 body:not(i) {
     font-family: Oxygen, sans-serif;
-}  
+}
+
+body::-webkit-scrollbar {
+    width: 8px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--smoky-black);
+}
+
+body::-webkit-scrollbar-thumb {
+    background: var(--cyan);
+    border-radius: 100vh;
+    background: white;
+}
+
+body::-webkit-scrollbar-thumb:hover {
+    background-color: var(--grey);
+}
 
 /* Hero Section */
 .hero {
@@ -284,12 +302,16 @@ body:not(i) {
 }
 
 @keyframes buzz {
-    0%, 100% {
+
+    0%,
+    100% {
         transform: rotate(0deg);
     }
+
     25% {
         transform: rotate(-2deg);
     }
+
     75% {
         transform: rotate(2deg);
     }
@@ -318,14 +340,13 @@ body:not(i) {
 }
 
 .hobbies-header {
-    background: linear-gradient(90deg, var(--cyan) 60%, white);
+    background: linear-gradient(135deg, var(--cyan) 20%, white);
     color: transparent;
     background-clip: text;
     -webkit-background-clip: text;
     display: block;
     font-size: 4rem;
     text-align: center;
-    color: white;
 }
 
 .hobbies-container {
@@ -336,7 +357,7 @@ body:not(i) {
     margin-top: 4rem;
 }
 
-.hobbies-container > .hobbies-wrapper {
+.hobbies-container>.hobbies-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -362,17 +383,82 @@ body:not(i) {
     box-shadow: 0 0 20px var(--dark-cyan);
 }
 
-.hobbies-circle:hover > i {
+.hobbies-circle:hover>i {
     transform: scale(1.4);
 }
 
-.hobbies-circle > i {
+.hobbies-circle>i {
     color: var(--cyan);
     font-size: 2rem;
     transition: 0.2s ease-in-out;
 }
 
-.hobbies-wrapper > span {
+.hobbies-wrapper>span {
     color: var(--grey);
     font-size: 1.1rem;
+}
+
+.skills {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding: 4.5rem var(--padding);
+    background: var(--dark-cyan);
+}
+
+.skills-header {
+    display: block;
+    font-size: 4rem;
+    text-align: center;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+}
+
+.skills-div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4rem;
+}
+
+.skills-div>div:first-child {
+    display: flex;
+    align-items: center;
+    column-gap: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    padding: 0.25rem 1.5rem;
+    border-radius: 100vw;
+    background: var(--dark-blue);
+}
+
+.skills-html>div:first-child i {
+    color: rgb(255, 38, 0);
+
+}
+
+.skills-div .progress-bar-container {
+    position: relative;
+    height: 1.2rem;
+    width: 75%;
+    border-radius: 100vw;
+    background: white;
+}
+
+.progress-bar-container .progress-bar {
+    background: rgb(255, 38, 0);
+    height: 100%;
+    width: 90%;
+    border-radius: 100vw;
+}
+
+.progress-bar-percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--smoky-black);
+    font-weight: bold;
 }
