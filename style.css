@@ -413,13 +413,17 @@ body::-webkit-scrollbar-thumb:hover {
     font-weight: bold;
     font-style: italic;
     color: white;
+    margin-bottom: 2rem;
 }
 
 .skills-div {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-top: 4rem;
+}
+
+.skills-div:not(:last-child) {
+    margin-bottom: 2rem;
 }
 
 .skills-div>div:first-child {
@@ -434,11 +438,6 @@ body::-webkit-scrollbar-thumb:hover {
     background: var(--dark-blue);
 }
 
-.skills-html>div:first-child i {
-    color: rgb(255, 38, 0);
-
-}
-
 .skills-div .progress-bar-container {
     position: relative;
     height: 1.2rem;
@@ -448,10 +447,9 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .progress-bar-container .progress-bar {
-    background: rgb(255, 38, 0);
     height: 100%;
-    width: 90%;
     border-radius: 100vw;
+    border: 1px solid white;
 }
 
 .progress-bar-percent {
