@@ -86,6 +86,28 @@ body::-webkit-scrollbar-thumb:hover {
     margin-bottom: 23px;
 }
 
+.go-to-top {
+    position: fixed;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    bottom: 2rem;
+    right: 1rem;
+    height: 2.8rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    box-shadow: 0 0 8px var(--smoky-black);
+    background: var(--dark-cyan);
+    cursor: pointer;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.go-to-top > i{
+    font-size: 1.3rem;
+    color: var(--smoky-black);
+}
+
 /* Hero Section */
 .hero {
     width: 100%;

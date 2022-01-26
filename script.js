@@ -103,10 +103,6 @@ function isScrolledIntoView(elem) {
     const bounding = elem.getBoundingClientRect();
     const y = Math.floor(bounding.y);
     const halfHeight = Math.floor(bounding.height / 2);
-    
-    if (elem.id === "hobbies") {
-        console.log(y, halfHeight);
-    }
     return (y - halfHeight) <= y <= (y + halfHeight);
 }
 
@@ -114,13 +110,21 @@ window.onscroll = function () {
     const home = document.getElementById("home");
     const hobbies = document.getElementById("hobbies");
     const skills = document.getElementById("skills");
+    const goToTop = document.getElementById("go-to-top");
     if (isScrolledIntoView(home)) {
         changeNavbarActive("home");
+        goToTop.classList.remove("fade-in")
+        goToTop.classList.add("fade-out");
     }
     else if (isScrolledIntoView(hobbies)) {
         changeNavbarActive("hobbies");
+        goToTop.style.display = "flex";
+        goToTop.classList.remove("fade-out")
+        goToTop.classList.add("fade-in");
     }
     else if (isScrolledIntoView(skills)) {
         changeNavbarActive("skills");
+        goToTop.classList.remove("fade-out")
+        goToTop.classList.add("fade-in");
     }
 }
