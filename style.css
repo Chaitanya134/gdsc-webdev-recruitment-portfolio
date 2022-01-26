@@ -53,7 +53,7 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .modal-bg {
-    position: absolute;
+    position: fixed;
     padding: 0 25px;
     margin-top: 110px;
     inset: 0;
@@ -82,7 +82,7 @@ body::-webkit-scrollbar-thumb:hover {
     list-style: none;
 }
 
-.modal li:not(:last-child){
+.modal li:not(:last-child) {
     margin-bottom: 23px;
 }
 
@@ -125,7 +125,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 0.8vw;
 }
 
-.hamburger-lines:not(:last-child){
+.hamburger-lines:not(:last-child) {
     margin-bottom: 0.8vw;
 }
 
@@ -133,27 +133,27 @@ body::-webkit-scrollbar-thumb:hover {
     transform-origin: center;
 }
 
-.active-line:nth-child(1){
+.active-line:nth-child(1) {
     animation: topToMid 1s forwards;
 }
 
-.active-line:nth-child(2){
+.active-line:nth-child(2) {
     animation: fadeOut 0.6s forwards;
 }
 
-.active-line:nth-child(3){
+.active-line:nth-child(3) {
     animation: bottomToMid 1s forwards;
 }
 
-.inactive-line:nth-child(1){
+.inactive-line:nth-child(1) {
     animation: midToTop 1s forwards;
 }
 
-.inactive-line:nth-child(2){
+.inactive-line:nth-child(2) {
     animation: fadeIn 0.6s forwards;
 }
 
-.inactive-line:nth-child(3){
+.inactive-line:nth-child(3) {
     animation: midToBottom 1s forwards;
 }
 
@@ -343,9 +343,11 @@ body::-webkit-scrollbar-thumb:hover {
     0% {
         transform: translateY(0) rotate(0);
     }
+
     30% {
         transform: translateY(1.6vw) rotate(0);
     }
+
     100% {
         transform: translateY(1.6vw) rotate(45deg);
     }
@@ -356,9 +358,11 @@ body::-webkit-scrollbar-thumb:hover {
     0% {
         transform: translateY(0) rotate(0);
     }
+
     30% {
         transform: translateY(-1.6vw) rotate(0);
     }
+
     100% {
         transform: translateY(-1.6vw) rotate(-45deg);
     }
@@ -369,9 +373,11 @@ body::-webkit-scrollbar-thumb:hover {
     0% {
         transform: translateY(1.6vw) rotate(45deg);
     }
+
     30% {
         transform: translateY(1.6vw) rotate(0);
     }
+
     100% {
         transform: translateY(0) rotate(0);
     }
@@ -382,9 +388,11 @@ body::-webkit-scrollbar-thumb:hover {
     0% {
         transform: translateY(-1.6vw) rotate(-45deg);
     }
+
     30% {
         transform: translateY(-1.6vw) rotate(0);
     }
+
     100% {
         transform: translateY(0) rotate(0);
     }
@@ -396,10 +404,12 @@ body::-webkit-scrollbar-thumb:hover {
         visibility: hidden;
         opacity: 0;
     }
+
     1% {
         visibility: hidden;
         opacity: 0;
     }
+
     to {
         visibility: visible;
         opacity: 1;
@@ -412,10 +422,12 @@ body::-webkit-scrollbar-thumb:hover {
         visibility: visible;
         opacity: 1;
     }
+
     99% {
         visibility: visible;
         opacity: 0;
     }
+
     to {
         visibility: hidden;
         opacity: 0;
@@ -510,7 +522,7 @@ body::-webkit-scrollbar-thumb:hover {
     position: absolute;
     top: 0;
     left: 0;
-    height: 85%;
+    height: 75%;
     aspect-ratio: 1;
     transform: translate(-53%, -20%);
     background: conic-gradient(var(--dark-cyan), white);
@@ -525,13 +537,13 @@ body::-webkit-scrollbar-thumb:hover {
     display: block;
     font-size: 4rem;
     text-align: center;
+    z-index: 2;
 }
 
 .hobbies-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    column-gap: 16rem;
     margin-top: 4rem;
 }
 
@@ -540,9 +552,21 @@ body::-webkit-scrollbar-thumb:hover {
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    min-width: 14vw;
     row-gap: 1rem;
     padding: 1rem;
     z-index: 1;
+}
+
+
+.hobbies-container>.hobbies-wrapper:nth-child(1),
+.hobbies-container>.hobbies-wrapper:nth-child(4) {
+    justify-self: flex-start;
+}
+
+.hobbies-container>.hobbies-wrapper:nth-child(3),
+.hobbies-container>.hobbies-wrapper:nth-child(6) {
+    justify-self: flex-end;
 }
 
 .hobbies-circle {
@@ -640,6 +664,32 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 /* Responsive Queries */
+@media screen and (max-width: 1250px) {
+    .hobbies-header {
+        font-size: 3.5rem;
+    }
+
+    .hobbies-wrapper {
+        min-width: 12vw;
+    }
+
+    .hobbies-circle {
+        width: 75px;
+    }
+
+    .hobbies-circle>i {
+        font-size: 1.5rem;
+    }
+
+    .hobbies-wrapper>span {
+        font-size: 1rem;
+    }
+
+    .hobbies::before {
+        height: 70%;
+    }
+}
+
 @media screen and (max-width: 1200px) {
     .hero-photo-group {
         height: 250px;
@@ -654,7 +704,7 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .hero-name {
-        font-size: max(0.8rem, 2vw);
+        font-size: max(1rem, 2vw);
     }
 
     .hero-nav-link {
@@ -700,6 +750,14 @@ body::-webkit-scrollbar-thumb:hover {
     .hero-photo-group {
         height: 25vw;
     }
+
+    .hobbies-header {
+        font-size: 2.8rem;
+    }
+
+    .hobbies-wrapper {
+        min-width: 20vw !important;
+    }
 }
 
 @media screen and (max-width: 650px) {
@@ -714,6 +772,22 @@ body::-webkit-scrollbar-thumb:hover {
     .hero-btn-wrapper {
         column-gap: 1rem;
     }
+
+    .hobbies::before {
+        height: 50%;
+    }
+
+    .hobbies-circle {
+        width: 65px;
+    }
+
+    .hobbies-circle>i {
+        font-size: 1.2rem;
+    }
+
+    .hobbies-wrapper>span {
+        font-size: 0.8rem;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -723,6 +797,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     .hero {
         height: 100vh;
+        background: radial-gradient(circle at 30% 40%, var(--dark-blue), var(--smoky-black) 50%);
     }
 
     .hero-nav {
@@ -771,9 +846,46 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .hero-btn {
-        height: 5vw;
-        width: 15vw;
-        font-size: 2vw;
+        height: 6vw;
+        width: 18vw;
+        font-size: 2.3vw;
+    }
+
+    .hobbies {
+        height: 130vh;
+    }
+
+    .hobbies::before {
+        display: none;
+    }
+
+    .hobbies-container {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .hobbies-wrapper {
+        min-width: 30vw !important;
+    }
+
+    .hobbies-container>.hobbies-wrapper:nth-child(1),
+    .hobbies-container>.hobbies-wrapper:nth-child(3),
+    .hobbies-container>.hobbies-wrapper:nth-child(5) {
+        justify-self: flex-start;
+    }
+
+    .hobbies-container>.hobbies-wrapper:nth-child(2),
+    .hobbies-container>.hobbies-wrapper:nth-child(4),
+    .hobbies-container>.hobbies-wrapper:nth-child(6) {
+        justify-self: flex-end;
+    }
+
+    .hobbies-circle {
+        width: 80px;
+    }
+
+    .hobbies-circle>i {
+        font-size: 1.8rem;
     }
 }
 
@@ -787,5 +899,26 @@ body::-webkit-scrollbar-thumb:hover {
         height: 8vw;
         width: 25vw;
         font-size: 3vw;
+    }
+
+    .hobbies-header {
+        font-size: 2rem;
+    }
+
+    .hobbies-wrapper {
+        min-width: 35vw !important;
+    }
+
+    .hobbies-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    .hobbies-container>.hobbies-wrapper:nth-child(3),
+    .hobbies-container>.hobbies-wrapper:nth-child(5),
+    .hobbies-container>.hobbies-wrapper:nth-child(6) {
+        display: none;
     }
 }
