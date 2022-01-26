@@ -15,6 +15,19 @@
 </head>
 
 <body>
+    <div class="modal-bg">
+        <div class="modal">
+            <ul>
+                <li><a id="home-modal-link" class="hero-modal-link active" onclick="scrollToSection('home')">HOME</a>
+                </li>
+                <li><a id="hobbies-modal-link" class="hero-modal-link" onclick="scrollToSection('hobbies')">MY
+                        HOBBIES</a></li>
+                <li><a id="skills-modal-link" class="hero-modal-link" onclick="scrollToSection('skills')">SKILLS</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+
     <!-- Home Section -->
     <section id="home" class="hero">
         <header class="hero-header">
@@ -29,6 +42,11 @@
                     </li>
                 </ul>
             </nav>
+            <div id="hamburger-menu" class="hero-hamburger-menu">
+                <div class="hamburger-lines"></div>
+                <div class="hamburger-lines"></div>
+                <div class="hamburger-lines"></div>
+            </div>
         </header>
         <div class="hero-body">
             <div class="hero-about-me">

@@ -1,10 +1,41 @@
-const heroNavLinks = document.querySelectorAll(".hero-nav-link");
+// Hamburger menu animation
+const hamburgerMenu = document.getElementById("hamburger-menu");
+const hamburgerLines = document.querySelectorAll(".hamburger-lines");
+const modalBg = document.querySelector(".modal-bg");
+const modal = document.querySelector(".modal");
+
+hamburgerMenu.addEventListener('click', function (){
+    hamburgerMenu.classList.toggle("active");
+    if (hamburgerMenu.className.includes("active")){
+        hamburgerLines.forEach(line => line.classList.add("active-line"));
+        hamburgerLines.forEach(line => line.classList.remove("inactive-line"));        
+        
+        // Fade-In animation
+        modalBg.classList.remove("fade-out");        
+        modal.classList.remove("fade-out");      
+        modalBg.classList.add("fade-in");        
+        modal.classList.add("fade-in"); 
+    } else {
+        hamburgerLines.forEach(line => line.classList.add("inactive-line"));
+        hamburgerLines.forEach(line => line.classList.remove("active-line"));
+        
+        // Fade-Out animation
+        modalBg.classList.remove("fade-in");        
+        modal.classList.remove("fade-in");
+        modalBg.classList.add("fade-out");        
+        modal.classList.add("fade-out");
+    }
+});
+
+
 
 function scrollToSection(section) {
     const element = document.getElementById(section);
     element.scrollIntoView({ behavior: "smooth" });
     document.querySelector(".hero-nav-link.active").classList.remove("active");
+    document.querySelector(".hero-modal-link.active").classList.remove("active");
     document.getElementById(`${section}-nav-link`).classList.add("active");
+    document.getElementById(`${section}-modal-link`).classList.add("active");
 }
 
 const skills = {
