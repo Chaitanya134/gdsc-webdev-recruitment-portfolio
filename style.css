@@ -109,6 +109,7 @@ body::-webkit-scrollbar-thumb:hover {
     font-size: 1.4rem;
     font-weight: bold;
     letter-spacing: 2px;
+    cursor: pointer;
 }
 
 .hero-hamburger-menu {
@@ -519,14 +520,16 @@ body::-webkit-scrollbar-thumb:hover {
 
 .hobbies::before {
     content: "";
+    display: none;
     position: absolute;
     top: 0;
     left: 0;
-    height: 75%;
+    height: 40%;
     aspect-ratio: 1;
     transform: translate(-53%, -20%);
     background: conic-gradient(var(--dark-cyan), white);
     border-radius: 50%;
+    filter: blur(90px);
 }
 
 .hobbies-header {
@@ -604,8 +607,34 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     height: 100vh;
     width: 100%;
-    padding: 4.5rem var(--padding);
-    background: var(--dark-cyan);
+    padding: 0 var(--padding);
+    padding-top: 0;
+    background: var(--smoky-black);
+    /* overflow: hidden; */
+}
+
+.skills::before,
+.skills::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 40%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: conic-gradient(var(--smoky-black), var(--dark-cyan));
+    transform: translate(0%, -25%);
+    filter: blur(100px);
+}
+
+.skills::after {
+    top: initial;
+    right: initial;
+    bottom: 0;
+    left: 0;
+    height: 30%;
+    background: conic-gradient(var(--dark-blue), white);
+    transform: translate(-53%, 0%);
 }
 
 .skills-header {
@@ -665,6 +694,8 @@ body::-webkit-scrollbar-thumb:hover {
 
 /* Responsive Queries */
 @media screen and (max-width: 1250px) {
+
+    /* Hobbies Section */
     .hobbies-header {
         font-size: 3.5rem;
     }
@@ -688,9 +719,20 @@ body::-webkit-scrollbar-thumb:hover {
     .hobbies::before {
         height: 70%;
     }
+
+    /* Skills Section */
+    .skills {
+        height: 120vh;
+    }
+
+    .skills-header {
+        margin-bottom: 3rem;
+    }
 }
 
 @media screen and (max-width: 1200px) {
+
+    /* Hero Section */
     .hero-photo-group {
         height: 250px;
     }
@@ -703,6 +745,7 @@ body::-webkit-scrollbar-thumb:hover {
         --slide-up: -3.8vw;
     }
 
+    /* Hero Section */
     .hero-name {
         font-size: max(1rem, 2vw);
     }
@@ -738,6 +781,8 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 @media screen and (max-width: 900px) {
+
+    /* Hero Section */
     .hero {
         height: fit-content;
     }
@@ -751,12 +796,27 @@ body::-webkit-scrollbar-thumb:hover {
         height: 25vw;
     }
 
+    /* Hobbies Section */
     .hobbies-header {
         font-size: 2.8rem;
     }
 
     .hobbies-wrapper {
         min-width: 20vw !important;
+    }
+
+    /* Skills Section */
+    .skills-header {
+        font-size: 2.8rem;
+    }
+
+    .skills-div>div:first-child {
+        font-size: 1rem;
+    }
+
+    .skills-div .progress-bar-container {
+        height: 1.1rem;
+        width: 65%;
     }
 }
 
@@ -765,6 +825,7 @@ body::-webkit-scrollbar-thumb:hover {
         --padding: 3.5rem;
     }
 
+    /* Hero Section */
     .hero-btn-my-hobbies {
         border-width: 1.5px;
     }
@@ -773,6 +834,7 @@ body::-webkit-scrollbar-thumb:hover {
         column-gap: 1rem;
     }
 
+    /* Hobbies Section */
     .hobbies::before {
         height: 50%;
     }
@@ -788,6 +850,11 @@ body::-webkit-scrollbar-thumb:hover {
     .hobbies-wrapper>span {
         font-size: 0.8rem;
     }
+
+    /* Skills Section */
+    .skills-div .progress-bar-container {
+        width: 55%;
+    }
 }
 
 @media screen and (max-width: 480px) {
@@ -795,6 +862,7 @@ body::-webkit-scrollbar-thumb:hover {
         --slide-up: -6.5vw;
     }
 
+    /* Hero Section */
     .hero {
         height: 100vh;
         background: radial-gradient(circle at 30% 40%, var(--dark-blue), var(--smoky-black) 50%);
@@ -851,12 +919,16 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 2.3vw;
     }
 
+    /* Hobbies Section */
     .hobbies {
         height: 130vh;
+        overflow: initial;
     }
 
     .hobbies::before {
-        display: none;
+        display: block;
+        height: 40%;
+        transform: translate(-50%, 0%);
     }
 
     .hobbies-container {
@@ -887,9 +959,26 @@ body::-webkit-scrollbar-thumb:hover {
     .hobbies-circle>i {
         font-size: 1.8rem;
     }
+
+    /* Skills Section */
+    .skills::before {
+        height: 35%;
+        transform: translate(0%, -50%);
+    }
+
+    .skills-div .progress-bar-container {
+        width: 50%;
+    }
+
+    .skills-div>div:first-child {
+        font-size: 0.9rem;
+        padding: 0.25rem 1rem;
+    }
 }
 
 @media screen and (max-width: 400px) {
+
+    /* Hero Section */
     .hero-description {
         font-size: 3vw;
         line-height: 4vw;
@@ -901,6 +990,7 @@ body::-webkit-scrollbar-thumb:hover {
         font-size: 3vw;
     }
 
+    /* Hobbies Section */
     .hobbies-header {
         font-size: 2rem;
     }
@@ -920,5 +1010,29 @@ body::-webkit-scrollbar-thumb:hover {
     .hobbies-container>.hobbies-wrapper:nth-child(5),
     .hobbies-container>.hobbies-wrapper:nth-child(6) {
         display: none;
+    }
+
+    /* Skills Section */
+    .skills {
+        height: 140vh;
+    }
+
+    .skills::before {
+        height: 25%;
+        transform: translate(0%, -50%);
+    }
+
+    .skills-header {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+
+    .skills-div {
+        flex-direction: column;
+        row-gap: 1rem;
+    }
+
+    .skills-div .progress-bar-container {
+        width: 90%;
     }
 }

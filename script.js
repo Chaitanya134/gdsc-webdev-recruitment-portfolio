@@ -4,38 +4,40 @@ const hamburgerLines = document.querySelectorAll(".hamburger-lines");
 const modalBg = document.querySelector(".modal-bg");
 const modal = document.querySelector(".modal");
 
-hamburgerMenu.addEventListener('click', function (){
+hamburgerMenu.addEventListener('click', function () {
     hamburgerMenu.classList.toggle("active");
-    if (hamburgerMenu.className.includes("active")){
+    if (hamburgerMenu.className.includes("active")) {
         hamburgerLines.forEach(line => line.classList.add("active-line"));
-        hamburgerLines.forEach(line => line.classList.remove("inactive-line"));        
-        
+        hamburgerLines.forEach(line => line.classList.remove("inactive-line"));
+
         // Fade-In animation
-        modalBg.classList.remove("fade-out");        
-        modal.classList.remove("fade-out");      
-        modalBg.classList.add("fade-in");        
-        modal.classList.add("fade-in"); 
+        modalBg.classList.remove("fade-out");
+        modal.classList.remove("fade-out");
+        modalBg.classList.add("fade-in");
+        modal.classList.add("fade-in");
     } else {
         hamburgerLines.forEach(line => line.classList.add("inactive-line"));
         hamburgerLines.forEach(line => line.classList.remove("active-line"));
-        
+
         // Fade-Out animation
-        modalBg.classList.remove("fade-in");        
+        modalBg.classList.remove("fade-in");
         modal.classList.remove("fade-in");
-        modalBg.classList.add("fade-out");        
+        modalBg.classList.add("fade-out");
         modal.classList.add("fade-out");
     }
 });
 
-
-
-function scrollToSection(section) {
-    const element = document.getElementById(section);
-    element.scrollIntoView({ behavior: "smooth" });
+function changeNavbarActive(section) {
     document.querySelector(".hero-nav-link.active").classList.remove("active");
     document.querySelector(".hero-modal-link.active").classList.remove("active");
     document.getElementById(`${section}-nav-link`).classList.add("active");
     document.getElementById(`${section}-modal-link`).classList.add("active");
+}
+
+function scrollToSection(section) {
+    const element = document.getElementById(section);
+    element.scrollIntoView({ behavior: "smooth" });
+    changeNavbarActive(section);
 }
 
 const skills = {
@@ -96,3 +98,29 @@ function createSkills() {
 }
 
 createSkills();
+
+function isScrolledIntoView(elem) {
+    const bounding = elem.getBoundingClientRect();
+    const y = Math.floor(bounding.y);
+    const halfHeight = Math.floor(bounding.height / 2);
+    
+    if (elem.id === "hobbies") {
+        console.log(y, halfHeight);
+    }
+    return (y - halfHeight) <= y <= (y + halfHeight);
+}
+
+window.onscroll = function () {
+    const home = document.getElementById("home");
+    const hobbies = document.getElementById("hobbies");
+    const skills = document.getElementById("skills");
+    if (isScrolledIntoView(home)) {
+        changeNavbarActive("home");
+    }
+    else if (isScrolledIntoView(hobbies)) {
+        changeNavbarActive("hobbies");
+    }
+    else if (isScrolledIntoView(skills)) {
+        changeNavbarActive("skills");
+    }
+}
