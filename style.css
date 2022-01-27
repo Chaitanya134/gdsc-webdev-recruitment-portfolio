@@ -376,6 +376,16 @@ body::-webkit-scrollbar-thumb:hover {
     transform: rotate(20deg);
 }
 
+.hero-photo-1 {
+    position: absolute;
+    inset: 0;
+    transform: translate(15%, -17.4%);
+    border-bottom-left-radius: 48%;
+    border-bottom-right-radius: 35%;
+    height: 124.57%;
+    width: 78.28%;
+}
+
 /* Hamburger Menu Animations */
 
 /* Top to Mid and Rotate 45deg */
