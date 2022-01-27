@@ -376,7 +376,8 @@ body::-webkit-scrollbar-thumb:hover {
     transform: rotate(20deg);
 }
 
-.hero-photo-1 {
+.hero-photo-1,
+.hero-photo-2 {
     position: absolute;
     inset: 0;
     transform: translate(15%, -17.4%);
@@ -384,6 +385,19 @@ body::-webkit-scrollbar-thumb:hover {
     border-bottom-right-radius: 35%;
     height: 124.57%;
     width: 78.28%;
+}
+
+.hero-photo-2 {
+    opacity: 0;
+    border-bottom-right-radius: 36%;
+}
+
+.hero-photo-group:hover .hero-photo-1{
+    animation: 1.3s fadeOut forwards;
+}
+
+.hero-photo-group:hover .hero-photo-2{
+    animation: 1.3s fadeIn forwards;
 }
 
 /* Hamburger Menu Animations */
