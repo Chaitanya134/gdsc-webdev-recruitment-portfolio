@@ -1006,6 +1006,7 @@ body::-webkit-scrollbar-thumb:hover {
     .hero-description {
         font-size: 3vw;
         line-height: 4vw;
+        max-width: 40ch;
     }
 
     .hero-btn {
