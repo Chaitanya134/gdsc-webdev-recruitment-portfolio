@@ -89,7 +89,7 @@ function createSkills() {
                 <i class="${icon}" style="color: ${color}"></i><span>${skill}</span>
             </div>
             <div class="progress-bar-container">
-                <div class="progress-bar" style="width: ${percent}; background: ${color}"></div>
+                <div skill="${skill}" class="progress-bar" style="width: ${percent}; background: ${color}"></div>
                 <span class="progress-bar-percent">${percent}</span>
             </div>
             `
@@ -111,20 +111,62 @@ window.onscroll = function () {
     const hobbies = document.getElementById("hobbies");
     const skills = document.getElementById("skills");
     const goToTop = document.getElementById("go-to-top");
+    const photoGroup = document.getElementById("hero-photo-group");
+    const aboutMe = document.getElementById("hero-about-me");
+
+    let insideHero = false;
     if (isScrolledIntoView(home)) {
         changeNavbarActive("home");
-        goToTop.classList.remove("fade-in")
-        goToTop.classList.add("fade-out");
+        insideHero = true;
     }
     else if (isScrolledIntoView(hobbies)) {
         changeNavbarActive("hobbies");
         goToTop.style.display = "flex";
-        goToTop.classList.remove("fade-out")
-        goToTop.classList.add("fade-in");
     }
     else if (isScrolledIntoView(skills)) {
         changeNavbarActive("skills");
-        goToTop.classList.remove("fade-out")
-        goToTop.classList.add("fade-in");
     }
+
+    goToTop.classList.toggle("fade-out", insideHero);
+    goToTop.classList.toggle("fade-in", !insideHero);
+    photoGroup.classList.toggle("show", insideHero);
+    aboutMe.classList.toggle("show", insideHero);
 }
+
+window.setTimeout(() => {
+    document.getElementById("hero-photo-group").classList.add("show");
+    document.getElementById("hero-about-me").classList.add("show");
+}, 100)
+
+// Hobbies Section Animations
+const hobbiesObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        entry.target.classList.toggle("show", entry.isIntersecting);
+    })
+}, {
+    threshold: 0.5
+});
+
+const hobbiesWrappers = document.querySelectorAll(".hobbies-wrapper");
+hobbiesWrappers.forEach(hobbiesWrapper => {
+    hobbiesObserver.observe(hobbiesWrapper);
+})
+
+// Skills Section Animations
+const skillsObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        const progressBar = entry.target;
+        if (entry.isIntersecting) {
+            progressBar.style.width = skills[progressBar.getAttribute("skill")].percent;
+        } else {
+            progressBar.style.width = 0;
+        }
+    })
+}, {
+    threshold: 0.5
+})
+
+const progressBars = document.querySelectorAll(".progress-bar")
+progressBars.forEach(progressBar => {
+    skillsObserver.observe(progressBar);
+})

@@ -114,6 +114,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100vh;
     background: radial-gradient(circle at 25%, var(--dark-blue), var(--smoky-black) 50%);
     padding: 1rem var(--padding);
+    overflow: hidden;
 }
 
 .hero-header {
@@ -231,6 +232,14 @@ body::-webkit-scrollbar-thumb:hover {
     display: flex;
     flex-direction: column;
     row-gap: 1.2rem;
+    transform: translateX(-20%);
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+.hero-about-me.show {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .hero-heading {
@@ -341,6 +350,14 @@ body::-webkit-scrollbar-thumb:hover {
     position: relative;
     height: 350px;
     aspect-ratio: 1;
+    transform: translateX(40%);
+    opacity: 0.25;
+    transition: 1s ease-in-out;
+}
+
+.hero-photo-group.show {
+    transform: translateX(0);
+    opacity: 1;
 }
 
 .hero-photo-div {
@@ -580,6 +597,14 @@ body::-webkit-scrollbar-thumb:hover {
     min-width: 14vw;
     row-gap: 1rem;
     padding: 1rem;
+    transform: translateY(60%);
+    opacity: 0;
+    transition: 1s ease-in-out;
+}
+
+.hobbies-container>.hobbies-wrapper.show {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 
@@ -629,7 +654,7 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100vh;
     width: 100%;
     padding: 0 var(--padding);
-    padding-top: 0;
+    padding-top: 2rem;
     background: var(--smoky-black);
     /* overflow: hidden; */
 }
@@ -701,7 +726,7 @@ body::-webkit-scrollbar-thumb:hover {
 .progress-bar-container .progress-bar {
     height: 100%;
     border-radius: 100vw;
-    border: 1px solid white;
+    transition: 1s width ease-in-out;
 }
 
 .progress-bar-percent {
