@@ -144,7 +144,7 @@ const hobbiesObserver = new IntersectionObserver(entries => {
         entry.target.classList.toggle("show", entry.isIntersecting);
     })
 }, {
-    threshold: 0.5
+    threshold: 0.3
 });
 
 const hobbiesWrappers = document.querySelectorAll(".hobbies-wrapper");
@@ -161,6 +161,7 @@ const skillsObserver = new IntersectionObserver(entries => {
         } else {
             progressBar.style.width = 0;
         }
+        progressBar.classList.toggle("show", entry.isIntersecting);
     })
 }, {
     threshold: 0.5

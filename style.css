@@ -587,6 +587,7 @@ body::-webkit-scrollbar-thumb:hover {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     margin-top: 4rem;
+    row-gap: 1.5rem;
 }
 
 .hobbies-container>.hobbies-wrapper {
@@ -727,6 +728,10 @@ body::-webkit-scrollbar-thumb:hover {
     height: 100%;
     border-radius: 100vw;
     transition: 1s width ease-in-out;
+}
+
+.progress-bar-container .progress-bar.show {
+    border: 1px solid white;
 }
 
 .progress-bar-percent {
