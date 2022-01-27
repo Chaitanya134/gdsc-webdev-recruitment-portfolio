@@ -580,7 +580,6 @@ body::-webkit-scrollbar-thumb:hover {
     min-width: 14vw;
     row-gap: 1rem;
     padding: 1rem;
-    z-index: 1;
 }
 
 
@@ -1049,12 +1048,12 @@ body::-webkit-scrollbar-thumb:hover {
 
     .skills-header {
         font-size: 2rem;
-        margin-bottom: 2rem;
+        margin-bottom: 4rem;
     }
 
     .skills-div {
         flex-direction: column;
-        row-gap: 1.2rem;
+        row-gap: 1.5rem;
     }
 
     .skills-div .progress-bar-container {
