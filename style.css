@@ -943,7 +943,9 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* Hobbies Section */
     .hobbies {
-        height: 130vh;
+        padding-top: 0;
+        padding-bottom: 0;
+        height: 75vh;
         overflow: initial;
     }
 
@@ -1036,11 +1038,11 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* Skills Section */
     .skills {
-        height: 140vh;
+        height: 100vh;
     }
 
     .skills::before {
-        height: 25%;
+        height: 20%;
         transform: translate(0%, -50%);
     }
 
@@ -1051,7 +1053,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     .skills-div {
         flex-direction: column;
-        row-gap: 1rem;
+        row-gap: 1.2rem;
     }
 
     .skills-div .progress-bar-container {
