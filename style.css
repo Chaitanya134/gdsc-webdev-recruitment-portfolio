@@ -1038,7 +1038,7 @@ body::-webkit-scrollbar-thumb:hover {
 
     /* Skills Section */
     .skills {
-        height: 100vh;
+        height: 105vh;
     }
 
     .skills::before {
@@ -1057,6 +1057,6 @@ body::-webkit-scrollbar-thumb:hover {
     }
 
     .skills-div .progress-bar-container {
-        width: 90%;
+        width: 100%;
     }
 }
