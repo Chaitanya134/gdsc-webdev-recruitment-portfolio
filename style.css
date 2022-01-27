@@ -393,11 +393,11 @@ body::-webkit-scrollbar-thumb:hover {
 }
 
 .hero-photo-group:hover .hero-photo-1{
-    animation: 1.3s fadeOut forwards;
+    animation: 1s fadeOut forwards;
 }
 
 .hero-photo-group:hover .hero-photo-2{
-    animation: 1.3s fadeIn forwards;
+    animation: 1s fadeIn forwards;
 }
 
 /* Hamburger Menu Animations */
